@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
+//import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 
-class EmailAdapter (private val emails : List<Email>) : RecyclerView.Adapter<EmailAdapter.ViewHolder>() {
+class EmailAdapter(private val emails : List<Email>) : RecyclerView.Adapter<EmailAdapter.ViewHolder>()
+{
     // Provide a direct reference to each of the views within a data item
     // Used a cache the views within the item layout for fast access
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -19,7 +20,7 @@ class EmailAdapter (private val emails : List<Email>) : RecyclerView.Adapter<Ema
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each sub-view
         init {
-            // Stores the itemview in a public final member variable that can be used
+            // Stores the item view in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             senderTextView = itemView.findViewById(R.id.senderTv)
             titleTextView = itemView.findViewById(R.id.titleTv)
@@ -42,7 +43,7 @@ class EmailAdapter (private val emails : List<Email>) : RecyclerView.Adapter<Ema
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Get the data model based on position
-        val email = emails.get(position)
+        val email = emails[position]
         // Set item views based on views and data model
         holder.senderTextView.text = email.sender
         holder.titleTextView.text = email.title
